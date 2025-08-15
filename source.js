@@ -1434,6 +1434,9 @@ var SVGtoPDF = function(doc, svg, x, y, options) {
                 }
                 break;
               case 'fill': case 'stroke':
+                if (key === 'stroke' && value === 'context-stroke') {
+                  return 'context-stroke'
+                }
                 if (value === 'none' || value === 'transparent') {
                   result = 'none';
                 } else if (value === 'currentColor') {
